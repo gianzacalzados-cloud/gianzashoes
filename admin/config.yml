@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  - name: "productos"
+    label: "Productos / Calzados"
+    folder: "content/productos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Marca", name: "brand", widget: "select", options: ["NIKE", "ADIDAS", "NEWBALANCE", "PUMA", "JORDAN", "VANS"] }
+      - { label: "Nombre del Modelo", name: "name", widget: "string" }
+      - { label: "Precio Mayorista ($)", name: "price", widget: "number", value_type: "int" }
+      - { label: "Imagen del Producto", name: "img", widget: "image" }
+      - label: "Stock por Talles"
+        name: "sizes"
+        widget: "list"
+        fields:
+          - { label: "Talle", name: "size", widget: "number", value_type: "int" }
+          - { label: "Cantidad en Stock", name: "stock", widget: "number", value_type: "int", default: 0 }
